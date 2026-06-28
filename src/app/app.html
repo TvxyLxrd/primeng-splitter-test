@@ -1,0 +1,37 @@
+<main class="demo-page">
+  <section class="demo-card">
+    <h1>PrimeNG Splitter Test</h1>
+    <p>
+      Three standard PrimeNG splitter panels with a standard PrimeNG MultiSelect
+      checkbox dropdown inside the middle panel.
+    </p>
+
+    <p-splitter [panelSizes]="[30, 40, 30]" [style]="{ height: '360px' }">
+      <ng-template #panel>
+        <div class="demo-panel">
+          <span>Block 1</span>
+        </div>
+      </ng-template>
+
+      <ng-template #panel>
+        <div class="demo-panel demo-panel-controls">
+          <span>Block 2</span>
+
+          <p-multiselect
+            [options]="checkboxMenuItems"
+            [(ngModel)]="selectedItems"
+            optionLabel="name"
+            placeholder="Select columns"
+            [maxSelectedLabels]="2"
+          />
+        </div>
+      </ng-template>
+
+      <ng-template #panel>
+        <div class="demo-panel">
+          <span>Block 3</span>
+        </div>
+      </ng-template>
+    </p-splitter>
+  </section>
+</main>
