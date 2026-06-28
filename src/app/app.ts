@@ -12,7 +12,6 @@ interface CheckboxMenuItem {
   selector: 'app-root',
   imports: [FormsModule, MultiSelectModule, SplitterModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss',
 })
 export class App {
   protected readonly checkboxMenuItems: CheckboxMenuItem[] = [

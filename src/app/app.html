@@ -1,23 +1,15 @@
-<main class="demo-page">
-  <p-splitter [panelSizes]="[30, 40, 30]" [style]="{ height: '360px' }">
-    <ng-template #panel>
-      <div class="demo-panel"></div>
-    </ng-template>
+<p-splitter [panelSizes]="[30, 40, 30]" [style]="{ height: '360px' }">
+  <ng-template #panel></ng-template>
 
-    <ng-template #panel>
-      <div class="demo-panel">
-        <p-multiselect
-          [options]="checkboxMenuItems"
-          [(ngModel)]="selectedItems"
-          optionLabel="name"
-          placeholder="Select columns"
-          [maxSelectedLabels]="2"
-        />
-      </div>
-    </ng-template>
+  <ng-template #panel>
+    <p-multiselect
+      [options]="checkboxMenuItems"
+      [(ngModel)]="selectedItems"
+      optionLabel="name"
+      placeholder="Select columns"
+      [maxSelectedLabels]="2"
+    />
+  </ng-template>
 
-    <ng-template #panel>
-      <div class="demo-panel"></div>
-    </ng-template>
-  </p-splitter>
-</main>
+  <ng-template #panel></ng-template>
+</p-splitter>
