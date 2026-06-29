@@ -6,7 +6,15 @@
       [minSizes]="[0, 0]"
     >
       <ng-template #panel>
-        <div class="splitter-cell">
+        <div class="splitter-cell sidebar-cell">
+          <p-button
+            icon="pi pi-bars"
+            [text]="true"
+            [rounded]="true"
+            ariaLabel="Toggle groups panel"
+            (click)="toggleSidebar()"
+          />
+
           <p-tree [value]="treeNodes" />
         </div>
       </ng-template>
@@ -26,14 +34,6 @@
             >
               <ng-template #panel>
                 <div class="splitter-cell">
-                  <p-button
-                    icon="pi pi-bars"
-                    [text]="true"
-                    [rounded]="true"
-                    ariaLabel="Toggle groups panel"
-                    (click)="toggleSidebar()"
-                  />
-
                   <p-multiselect
                     [options]="checkboxMenuItems"
                     [(ngModel)]="selectedItems"
