@@ -1,4 +1,12 @@
 <main #splitterFrame class="screen-frame">
+  <p-button
+    icon="pi pi-bars"
+    [text]="true"
+    [rounded]="true"
+    ariaLabel="Toggle groups panel"
+    (click)="toggleSidebar()"
+  />
+
   @if (sidebarOpen()) {
     <p-splitter
       styleClass="full-height"
@@ -6,14 +14,6 @@
       [minSizes]="[0, 0]"
     >
       <ng-template #panel>
-        <p-button
-          icon="pi pi-bars"
-          [text]="true"
-          [rounded]="true"
-          ariaLabel="Toggle groups panel"
-          (click)="toggleSidebar()"
-        />
-
         <p-tree [value]="treeNodes" />
       </ng-template>
 
@@ -68,14 +68,6 @@
               [minSizes]="[0, 0]"
             >
               <ng-template #panel>
-                <p-button
-                  icon="pi pi-bars"
-                  [text]="true"
-                  [rounded]="true"
-                  ariaLabel="Toggle groups panel"
-                  (click)="toggleSidebar()"
-                />
-
                 <p-multiselect
                   [options]="checkboxMenuItems"
                   [(ngModel)]="selectedItems"
