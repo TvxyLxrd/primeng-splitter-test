@@ -7,83 +7,85 @@
     (click)="toggleSidebar()"
   />
 
-  @if (sidebarOpen()) {
-    <p-splitter
-      styleClass="full-height"
-      [panelSizes]="outerPanelSizes()"
-      [minSizes]="[0, 0]"
-    >
-      <ng-template #panel>
-        <p-tree [value]="treeNodes" />
-      </ng-template>
+  <div class="splitter-shell">
+    @if (sidebarOpen()) {
+      <p-splitter
+        styleClass="full-height"
+        [panelSizes]="outerPanelSizes()"
+        [minSizes]="[0, 0]"
+      >
+        <ng-template #panel>
+          <p-tree [value]="treeNodes" />
+        </ng-template>
 
-      <ng-template #panel>
-        <p-splitter
-          styleClass="full-height"
-          layout="vertical"
-          [panelSizes]="mainPanelSizes"
-          [minSizes]="[0, 0]"
-        >
-          <ng-template #panel>
-            <p-splitter
-              styleClass="full-height"
-              [panelSizes]="workPanelSizes"
-              [minSizes]="[0, 0]"
-            >
-              <ng-template #panel>
-                <p-multiselect
-                  [options]="checkboxMenuItems"
-                  [(ngModel)]="selectedItems"
-                  optionLabel="name"
-                  placeholder="Select columns"
-                  [maxSelectedLabels]="2"
-                />
-              </ng-template>
+        <ng-template #panel>
+          <p-splitter
+            styleClass="full-height"
+            layout="vertical"
+            [panelSizes]="mainPanelSizes"
+            [minSizes]="[0, 0]"
+          >
+            <ng-template #panel>
+              <p-splitter
+                styleClass="full-height"
+                [panelSizes]="workPanelSizes"
+                [minSizes]="[0, 0]"
+              >
+                <ng-template #panel>
+                  <p-multiselect
+                    [options]="checkboxMenuItems"
+                    [(ngModel)]="selectedItems"
+                    optionLabel="name"
+                    placeholder="Select columns"
+                    [maxSelectedLabels]="2"
+                  />
+                </ng-template>
 
-              <ng-template #panel></ng-template>
-            </p-splitter>
-          </ng-template>
+                <ng-template #panel></ng-template>
+              </p-splitter>
+            </ng-template>
 
-          <ng-template #panel></ng-template>
-        </p-splitter>
-      </ng-template>
-    </p-splitter>
-  } @else {
-    <p-splitter
-      styleClass="full-height"
-      [panelSizes]="outerPanelSizes()"
-      [minSizes]="[0]"
-    >
-      <ng-template #panel>
-        <p-splitter
-          styleClass="full-height"
-          layout="vertical"
-          [panelSizes]="mainPanelSizes"
-          [minSizes]="[0, 0]"
-        >
-          <ng-template #panel>
-            <p-splitter
-              styleClass="full-height"
-              [panelSizes]="workPanelSizes"
-              [minSizes]="[0, 0]"
-            >
-              <ng-template #panel>
-                <p-multiselect
-                  [options]="checkboxMenuItems"
-                  [(ngModel)]="selectedItems"
-                  optionLabel="name"
-                  placeholder="Select columns"
-                  [maxSelectedLabels]="2"
-                />
-              </ng-template>
+            <ng-template #panel></ng-template>
+          </p-splitter>
+        </ng-template>
+      </p-splitter>
+    } @else {
+      <p-splitter
+        styleClass="full-height"
+        [panelSizes]="outerPanelSizes()"
+        [minSizes]="[0]"
+      >
+        <ng-template #panel>
+          <p-splitter
+            styleClass="full-height"
+            layout="vertical"
+            [panelSizes]="mainPanelSizes"
+            [minSizes]="[0, 0]"
+          >
+            <ng-template #panel>
+              <p-splitter
+                styleClass="full-height"
+                [panelSizes]="workPanelSizes"
+                [minSizes]="[0, 0]"
+              >
+                <ng-template #panel>
+                  <p-multiselect
+                    [options]="checkboxMenuItems"
+                    [(ngModel)]="selectedItems"
+                    optionLabel="name"
+                    placeholder="Select columns"
+                    [maxSelectedLabels]="2"
+                  />
+                </ng-template>
 
-              <ng-template #panel></ng-template>
-            </p-splitter>
-          </ng-template>
+                <ng-template #panel></ng-template>
+              </p-splitter>
+            </ng-template>
 
-          <ng-template #panel></ng-template>
-        </p-splitter>
-      </ng-template>
-    </p-splitter>
-  }
+            <ng-template #panel></ng-template>
+          </p-splitter>
+        </ng-template>
+      </p-splitter>
+    }
+  </div>
 </main>
