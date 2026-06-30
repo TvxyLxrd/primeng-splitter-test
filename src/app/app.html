@@ -12,6 +12,7 @@
     @if (sidebarOpen()) {
       <p-splitter
         styleClass="app-splitter outer-splitter"
+        [gutterSize]="1"
         [panelSizes]="outerPanelSizes()"
         [minSizes]="[0, 0]"
       >
@@ -42,6 +43,7 @@
     } @else {
       <p-splitter
         styleClass="app-splitter outer-splitter"
+        [gutterSize]="1"
         [panelSizes]="[100]"
         [minSizes]="[0]"
       >

@@ -35,6 +35,14 @@
 }
 
 :host ::ng-deep .outer-splitter > .p-splitter-gutter {
+  background: var(--p-content-border-color);
   cursor: default;
+  flex: 0 0 1px !important;
+  inline-size: 1px !important;
+  min-inline-size: 1px !important;
   pointer-events: none;
+}
+
+:host ::ng-deep .outer-splitter > .p-splitter-gutter > .p-splitter-gutter-handle {
+  display: none;
 }
