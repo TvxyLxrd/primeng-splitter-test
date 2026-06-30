@@ -30,11 +30,11 @@
   min-height: 0;
 }
 
-.outer-splitter {
+.root-splitter {
   overflow: hidden;
 }
 
-:host ::ng-deep .outer-splitter > .p-splitter-gutter {
+:host ::ng-deep .sidebar-splitter > .p-splitter-gutter {
   background: var(--p-content-border-color);
   cursor: default;
   flex: 0 0 1px !important;
@@ -43,6 +43,6 @@
   pointer-events: none;
 }
 
-:host ::ng-deep .outer-splitter > .p-splitter-gutter > .p-splitter-gutter-handle {
+:host ::ng-deep .sidebar-splitter > .p-splitter-gutter > .p-splitter-gutter-handle {
   display: none;
 }
