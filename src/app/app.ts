@@ -1,12 +1,10 @@
-import { Component, ElementRef, ViewChild, signal } from '@angular/core';
-import { TreeNode } from 'primeng/api';
+import { Component, ElementRef, HostListener, ViewChild, signal } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { SplitterModule } from 'primeng/splitter';
-import { TreeModule } from 'primeng/tree';
 
 @Component({
   selector: 'app-root',
-  imports: [ButtonModule, SplitterModule, TreeModule],
+  imports: [ButtonModule, SplitterModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -19,15 +17,17 @@ export class App {
   protected readonly verticalPanelSizes = [70, 30];
   protected readonly topPanelSizes = [70, 30];
 
-  protected readonly treeNodes: TreeNode[] = [
-    {
-      label: 'Groups',
-      expanded: true,
-      children: [{ label: 'Tree' }],
-    },
-  ];
+  private readonly sidebarStartWidthPx = (10 * 96) / 2.54;
 
-  private readonly sidebarStartWidthPx = (11 * 96) / 2.54;
+  @HostListener('window:resize')
+  protected keepSidebarFixedWidth(): void {
+    if (!this.sidebarOpen()) {
+      return;
+    }
+
+    const sidebarPercent = this.getSidebarStartPercent();
+    this.outerPanelSizes.set([sidebarPercent, 100 - sidebarPercent]);
+  }
 
   protected toggleSidebar(): void {
     if (this.sidebarOpen()) {

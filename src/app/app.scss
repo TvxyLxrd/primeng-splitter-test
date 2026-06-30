@@ -1,19 +1,21 @@
 :host {
   display: block;
   height: 100vh;
+  background: #fff;
 }
 
 .screen-frame {
+  background: #fff;
   box-sizing: border-box;
   height: 100vh;
   overflow: hidden;
-  padding: 1cm 4mm 4mm;
+  padding: 1cm 2mm 2mm;
   position: relative;
 }
 
 .sidebar-toggle {
   inset-block-start: calc((1cm - 2.5rem) / 2);
-  inset-inline-start: 4mm;
+  inset-inline-start: 2mm;
   position: absolute;
   z-index: 1;
 }
@@ -30,4 +32,9 @@
 
 .outer-splitter {
   overflow: hidden;
+}
+
+:host ::ng-deep .outer-splitter > .p-splitter-gutter {
+  cursor: default;
+  pointer-events: none;
 }
