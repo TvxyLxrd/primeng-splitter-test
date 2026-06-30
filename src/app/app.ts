@@ -8,8 +8,6 @@ interface TreeOption {
   name: string;
 }
 
-const selectMaxTextLength = 62;
-
 @Component({
   selector: 'app-root',
   imports: [ButtonModule, FormsModule, SelectModule, SplitterModule],
@@ -34,13 +32,6 @@ export class App {
   protected selectedTree: TreeOption = this.treeOptions[0];
 
   private readonly sidebarStartWidthPx = (9 * 96) / 2.54;
-
-  protected get treeSelectTextWidth(): string {
-    const textLength = this.selectedTree?.name.length || 1;
-    const clampedLength = Math.min(selectMaxTextLength, Math.max(textLength, 1));
-
-    return `${clampedLength}ch`;
-  }
 
   @HostListener('window:resize')
   protected keepSidebarFixedWidth(): void {

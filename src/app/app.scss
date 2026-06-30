@@ -42,12 +42,13 @@
 
 :host ::ng-deep .tree-select {
   display: inline-flex;
-  inline-size: min(7cm, calc(var(--tree-select-text-width) + var(--p-select-dropdown-width, 2.5rem) + 1.25rem));
+  inline-size: fit-content;
   max-inline-size: 7cm;
 }
 
 :host ::ng-deep .tree-select .p-select-label {
   flex: 0 1 auto;
+  max-inline-size: calc(7cm - var(--p-select-dropdown-width, 2.5rem));
   min-inline-size: 0;
   overflow: hidden;
   text-overflow: ellipsis;
