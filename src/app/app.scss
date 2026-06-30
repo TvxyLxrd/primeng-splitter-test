@@ -41,16 +41,19 @@
 }
 
 :host ::ng-deep .tree-select {
+  display: inline-flex;
   inline-size: fit-content;
   max-inline-size: 7cm;
   min-inline-size: 5cm;
 }
 
 :host ::ng-deep .tree-select .p-select-label {
+  flex: 0 1 auto;
   min-inline-size: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: auto;
 }
 
 :host ::ng-deep .sidebar-splitter > .p-splitter-gutter {

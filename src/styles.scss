@@ -44,11 +44,28 @@ textarea {
 }
 
 .tree-select-panel {
+  inline-size: fit-content;
   max-inline-size: 7cm;
   min-inline-size: 5cm;
 }
 
+.tree-select-panel .p-select-list {
+  max-inline-size: 7cm;
+}
+
+.tree-select-panel .p-select-option {
+  box-sizing: border-box;
+  font-size: var(--p-select-sm-font-size, 0.875rem);
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  padding-block: var(--p-select-sm-padding-y, 0.375rem);
+  padding-inline: var(--p-select-sm-padding-x, 0.625rem);
+}
+
 .tree-select-panel .p-select-option-label {
+  display: block;
+  flex: 1 1 auto;
+  min-inline-size: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
