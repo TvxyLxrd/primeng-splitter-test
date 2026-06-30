@@ -40,22 +40,6 @@
   padding: 2mm;
 }
 
-:host ::ng-deep .tree-select {
-  display: inline-flex;
-  inline-size: fit-content;
-  max-inline-size: 7cm;
-}
-
-:host ::ng-deep .tree-select .p-select-label {
-  flex: 0 1 auto;
-  max-inline-size: calc(7cm - var(--p-select-dropdown-width, 2.5rem));
-  min-inline-size: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: auto;
-}
-
 :host ::ng-deep .sidebar-splitter > .p-splitter-gutter {
   background: var(--p-content-border-color);
   cursor: default;

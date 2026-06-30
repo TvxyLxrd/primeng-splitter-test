@@ -26,12 +26,7 @@
             <ng-template #panel>
               <div class="tree-panel">
                 <p-select
-                  styleClass="tree-select"
-                  panelStyleClass="tree-select-panel"
                   size="small"
-                  [autoOptionFocus]="false"
-                  [focusOnHover]="false"
-                  [selectOnFocus]="false"
                   [(ngModel)]="selectedTree"
                   [options]="treeOptions"
                   optionLabel="name"
