@@ -1,10 +1,16 @@
 import { Component, ElementRef, HostListener, ViewChild, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { SelectModule } from 'primeng/select';
 import { SplitterModule } from 'primeng/splitter';
+
+interface TreeOption {
+  name: string;
+}
 
 @Component({
   selector: 'app-root',
-  imports: [ButtonModule, SplitterModule],
+  imports: [ButtonModule, FormsModule, SelectModule, SplitterModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -16,8 +22,16 @@ export class App {
   protected readonly outerPanelSizes = signal<number[]>([100]);
   protected readonly verticalPanelSizes = [70, 30];
   protected readonly topPanelSizes = [70, 30];
+  protected readonly treeOptions: TreeOption[] = [
+    { name: 'Semiconductor Global Core' },
+    { name: 'Precious Metals' },
+    { name: 'Global Defense & Aerospace Chain' },
+    { name: 'AI Infrastructure' },
+    { name: 'Semiconductor Equipment Materials and Advanced Packaging Global Chain' },
+  ];
+  protected selectedTree: TreeOption = this.treeOptions[0];
 
-  private readonly sidebarStartWidthPx = (10 * 96) / 2.54;
+  private readonly sidebarStartWidthPx = (9 * 96) / 2.54;
 
   @HostListener('window:resize')
   protected keepSidebarFixedWidth(): void {

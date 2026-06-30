@@ -42,3 +42,14 @@ textarea {
 .pi::after {
   font-family: primeicons;
 }
+
+.tree-select-panel {
+  max-inline-size: 7cm;
+  min-inline-size: 5cm;
+}
+
+.tree-select-panel .p-select-option-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
