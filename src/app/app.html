@@ -1,5 +1,6 @@
-<main #splitterFrame class="screen-frame">
+<main class="screen-frame">
   <p-button
+    class="sidebar-toggle"
     icon="pi pi-bars"
     [text]="true"
     [rounded]="true"
@@ -7,10 +8,10 @@
     (click)="toggleSidebar()"
   />
 
-  <div class="splitter-shell">
+  <div #splitterArea class="splitter-area">
     @if (sidebarOpen()) {
       <p-splitter
-        styleClass="full-height"
+        styleClass="app-splitter outer-splitter"
         [panelSizes]="outerPanelSizes()"
         [minSizes]="[0, 0]"
       >
@@ -20,27 +21,18 @@
 
         <ng-template #panel>
           <p-splitter
-            styleClass="full-height"
+            styleClass="app-splitter"
             layout="vertical"
-            [panelSizes]="mainPanelSizes"
+            [panelSizes]="verticalPanelSizes"
             [minSizes]="[0, 0]"
           >
             <ng-template #panel>
               <p-splitter
-                styleClass="full-height"
-                [panelSizes]="workPanelSizes"
+                styleClass="app-splitter"
+                [panelSizes]="topPanelSizes"
                 [minSizes]="[0, 0]"
               >
-                <ng-template #panel>
-                  <p-multiselect
-                    [options]="checkboxMenuItems"
-                    [(ngModel)]="selectedItems"
-                    optionLabel="name"
-                    placeholder="Select columns"
-                    [maxSelectedLabels]="2"
-                  />
-                </ng-template>
-
+                <ng-template #panel></ng-template>
                 <ng-template #panel></ng-template>
               </p-splitter>
             </ng-template>
@@ -51,33 +43,24 @@
       </p-splitter>
     } @else {
       <p-splitter
-        styleClass="full-height"
-        [panelSizes]="outerPanelSizes()"
+        styleClass="app-splitter outer-splitter"
+        [panelSizes]="[100]"
         [minSizes]="[0]"
       >
         <ng-template #panel>
           <p-splitter
-            styleClass="full-height"
+            styleClass="app-splitter"
             layout="vertical"
-            [panelSizes]="mainPanelSizes"
+            [panelSizes]="verticalPanelSizes"
             [minSizes]="[0, 0]"
           >
             <ng-template #panel>
               <p-splitter
-                styleClass="full-height"
-                [panelSizes]="workPanelSizes"
+                styleClass="app-splitter"
+                [panelSizes]="topPanelSizes"
                 [minSizes]="[0, 0]"
               >
-                <ng-template #panel>
-                  <p-multiselect
-                    [options]="checkboxMenuItems"
-                    [(ngModel)]="selectedItems"
-                    optionLabel="name"
-                    placeholder="Select columns"
-                    [maxSelectedLabels]="2"
-                  />
-                </ng-template>
-
+                <ng-template #panel></ng-template>
                 <ng-template #panel></ng-template>
               </p-splitter>
             </ng-template>
