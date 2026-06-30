@@ -42,9 +42,8 @@
 
 :host ::ng-deep .tree-select {
   display: inline-flex;
-  inline-size: fit-content;
+  inline-size: min(7cm, calc(var(--tree-select-text-width) + var(--p-select-dropdown-width, 2.5rem) + 1.25rem));
   max-inline-size: 7cm;
-  min-inline-size: 5cm;
 }
 
 :host ::ng-deep .tree-select .p-select-label {
