@@ -62,6 +62,11 @@ textarea {
   padding-inline: var(--p-select-sm-padding-x, 0.625rem);
 }
 
+.tree-select-panel .p-select-option.p-focus:not(.p-select-option-selected) {
+  background: transparent;
+  color: var(--p-select-option-color);
+}
+
 .tree-select-panel .p-select-option-label {
   display: block;
   flex: 1 1 auto;
