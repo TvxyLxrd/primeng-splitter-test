@@ -4,9 +4,8 @@ import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
 import { SplitterModule } from 'primeng/splitter';
 
-interface City {
+interface TreeOption {
   name: string;
-  code: string;
 }
 
 @Component({
@@ -23,14 +22,14 @@ export class App {
   protected readonly outerPanelSizes = signal<number[]>([100]);
   protected readonly verticalPanelSizes = [70, 30];
   protected readonly topPanelSizes = [70, 30];
-  protected readonly cities: City[] = [
-    { name: 'New York', code: 'NY' },
-    { name: 'Rome', code: 'RM' },
-    { name: 'London', code: 'LDN' },
-    { name: 'Istanbul', code: 'IST' },
-    { name: 'Paris', code: 'PRS' },
+  protected readonly treeOptions: TreeOption[] = [
+    { name: 'Semiconductor Global Core' },
+    { name: 'Precious Metals' },
+    { name: 'Global Defense & Aerospace Chain' },
+    { name: 'AI Infrastructure' },
+    { name: 'Semiconductor Equipment Materials and Advanced Packaging Global Chain' },
   ];
-  protected selectedCity?: City;
+  protected selectedTree?: TreeOption;
 
   private readonly sidebarStartWidthPx = (9 * 96) / 2.54;
 
