@@ -4,8 +4,9 @@ import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
 import { SplitterModule } from 'primeng/splitter';
 
-interface TreeOption {
+interface City {
   name: string;
+  code: string;
 }
 
 @Component({
@@ -22,17 +23,20 @@ export class App {
   protected readonly outerPanelSizes = signal<number[]>([100]);
   protected readonly verticalPanelSizes = [70, 30];
   protected readonly topPanelSizes = [70, 30];
-  protected readonly treeOptions: TreeOption[] = [
-    { name: 'Semiconductor Global Core' },
-    { name: 'Precious Metals' },
-    { name: 'Global Defense & Aerospace Chain' },
-    { name: 'AI Infrastructure' },
-    { name: 'Semiconductor Equipment Materials and Advanced Packaging Global Chain' },
+  protected readonly cities: City[] = [
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' },
   ];
-  protected selectedTree: TreeOption = this.treeOptions[0];
+  protected selectedCity?: City;
 
   private readonly sidebarStartWidthPx = (9 * 96) / 2.54;
 
+  /**
+   * Keeps the opened sidebar at the configured start width after viewport resize.
+   */
   @HostListener('window:resize')
   protected keepSidebarFixedWidth(): void {
     if (!this.sidebarOpen()) {
@@ -43,6 +47,9 @@ export class App {
     this.outerPanelSizes.set([sidebarPercent, 100 - sidebarPercent]);
   }
 
+  /**
+   * Opens the sidebar to its start width or closes it back to zero width.
+   */
   protected toggleSidebar(): void {
     if (this.sidebarOpen()) {
       this.sidebarOpen.set(false);
@@ -55,6 +62,9 @@ export class App {
     this.sidebarOpen.set(true);
   }
 
+  /**
+   * Converts the configured sidebar start width from pixels to splitter percent.
+   */
   private getSidebarStartPercent(): number {
     const splitterWidth = this.splitterArea?.nativeElement.getBoundingClientRect().width || window.innerWidth;
     const percent = (this.sidebarStartWidthPx / splitterWidth) * 100;
